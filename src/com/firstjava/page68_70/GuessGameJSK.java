@@ -1,11 +1,13 @@
 package com.firstjava.page68_70;
 
+import java.io.IOException;
+
 public class GuessGameJSK {
     PlayerJSK p1;
     PlayerJSK p2;
     PlayerJSK p3;
 
-    public void startGame() {
+    public void startGame() throws IOException {
         p1 = new PlayerJSK();
         p2 = new PlayerJSK();
         p3 = new PlayerJSK();
@@ -28,16 +30,17 @@ public class GuessGameJSK {
         System.out.println("Всё просто! Я загадыываю число от 0 до 9...");
         System.out.println();
         System.out.println("... и помещаю листок с загаданным числом в конверт.");
-        System.out.println("Вам, зрителям, по большому секрету, скажу - число, которое я загадал, - " + targetNumber);
+        // System.out.println("Вам, зрителям, по большому секрету, скажу - число, которое я загадал, - " + targetNumber);
+        System.out.println("Вам, зрителям, по большому секрету, скажу - число, которое я загадал, - ага, щассс!!");
 
         while (true) {
             System.out.println("Игроки, вы готовы угадать число?");
             System.out.println();
 
             System.out.print("1. ");
-            p1.guesss();
+            p1.inputnum();
             System.out.print("2. ");
-            p2.guesss();
+            p2.inputnum();
             System.out.print("3. ");
             p3.guesss();
             System.out.println();
@@ -46,9 +49,9 @@ public class GuessGameJSK {
             guessp1 = p1.number;
             System.out.println("Первый игрок думает, что это " + guessp1);
             guessp2 = p2.number;
-            System.out.println("Первый игрок думает, что это " + guessp2);
+            System.out.println("Второй игрок думает, что это " + guessp2);
             guessp3 = p3.number;
-            System.out.println("Первый игрок думает, что это " + guessp3);
+            System.out.println("Третий игрок думает, что это " + guessp3);
 
             if (guessp1 == targetNumber) {
                 p1isRight = true;
