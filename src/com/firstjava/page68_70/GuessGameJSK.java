@@ -18,16 +18,31 @@ public class GuessGameJSK {
         boolean p2isRight = false;
         boolean p3isRight = false;
 
+        String p1wow = "Неееет!";
+        String p2wow = "Неееет!";
+        String p3wow = "Неееет!";
+
         int targetNumber = (int) (Math.random() * 10);
-        System.out.println("Я загадыываю числоот 0 до 9...");
+        System.out.println("Ведущий: ДОБРО ПОЖАЛОВАТЬ!!! (бурные аплодисменты, крики 'Привееет', 'Ты супееер!')");
+        System.out.println("Это игра на угадывание чисел...");
+        System.out.println("Всё просто! Я загадыываю число от 0 до 9...");
+        System.out.println();
+        System.out.println("... и помещаю листок с загаданным числом в конверт.");
+        System.out.println("Вам, зрителям, по большому секрету, скажу - число, которое я загадал, - " + targetNumber);
 
         while (true) {
-            System.out.println("Число, которое нужно угадать, - " + targetNumber);
+            System.out.println("Игроки, вы готовы угадать число?");
+            System.out.println();
 
+            System.out.print("1. ");
             p1.guesss();
+            System.out.print("2. ");
             p2.guesss();
+            System.out.print("3. ");
             p3.guesss();
+            System.out.println();
 
+            System.out.println("Ведущий:");
             guessp1 = p1.number;
             System.out.println("Первый игрок думает, что это " + guessp1);
             guessp2 = p2.number;
@@ -35,23 +50,36 @@ public class GuessGameJSK {
             guessp3 = p3.number;
             System.out.println("Первый игрок думает, что это " + guessp3);
 
-            if (guessp1 == targetNumber)
+            if (guessp1 == targetNumber) {
                 p1isRight = true;
-            if (guessp2 == targetNumber)
+                p1wow = "Дааааа!!!";
+            }
+            if (guessp2 == targetNumber) {
                 p2isRight = true;
-            if (guessp3 == targetNumber)
+                p2wow = "Дааааа!!!";
+            }
+            if (guessp3 == targetNumber) {
                 p3isRight = true;
+                p3wow = "Дааааа!!!";
+            }
 
             if (p1isRight || p2isRight || p3isRight) {
 
-                System.out.println("У нас есть победитель!");
-                System.out.println("Первый игрок угадал?" + p1isRight);
-                System.out.println("Второй игрок угадал?" + p2isRight);
-                System.out.println("Третий игрок угадал?" + p3isRight);
-                System.out.println("Конец игры.");
+
+                System.out.println("У НАС ЕСТЬ ПОБЕДИТЕЛЬ!!!");
+                System.out.println();
+                System.out.println("Первый игрок угадал? Зал: " + p1wow);
+                System.out.println("Второй игрок угадал? Зал: " + p2wow);
+                System.out.println("Третий игрок угадал? Зал: " + p3wow);
+                System.out.println("ПОЗРАВЛЯЕМ С ПОБЕДОЙ! (продолжительные аплодисменты) Конец игры!!!"); // Здесь можно будет обозначить выигравших
                 break;
-            } else
-                System.out.println("Игроки должны попробовать еще раз!");
+            } else {
+                System.out.println("НИКТО НЕ УГАДАЛ! (Зал: нуууу-у-у--у---у...)");
+                System.out.println("Игроки должны попробовать еще раз! (ободряющие аплодисменты)");
+                System.out.println();
+
+            }
         }
     }
 }
+
